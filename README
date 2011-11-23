@@ -1,0 +1,7 @@
+What's this?
+------------
+
+This is a simple/sample Electronic Health Record (EHR) application
+with integrated DICOM viewing capabilities.
+
+The records are kept within an SQLITE database.
