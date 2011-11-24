@@ -13,6 +13,9 @@ class EHRNewRecordWindow(QtGui.QDialog, Ui_NewRecordWindow):
 
         self.setupUi(self)
 
+        # Set today's date for first visit
+        self.labelFirstVisit.setText(QtCore.QDate.currentDate().toString(QtCore.Qt.ISODate))
+
         # Sİnyalleri filan burda bagla
 
 
