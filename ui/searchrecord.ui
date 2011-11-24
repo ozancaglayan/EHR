@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SearchRecordWindow</class>
+ <widget class="QDialog" name="SearchRecordWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>992</width>
+    <height>754</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Kayıt Arama</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="../data/icons.qrc">
+    <normaloff>:/Health.png</normaloff>:/Health.png</iconset>
+  </property>
+  <layout class="QGridLayout" name="gridLayout_5"/>
+ </widget>
+ <resources>
+  <include location="../data/icons.qrc"/>
+  <include location="../data/icons.qrc"/>
+ </resources>
+ <connections/>
+</ui>
