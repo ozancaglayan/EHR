@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>863</width>
+    <height>792</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,8 +19,8 @@
      <rect>
       <x>0</x>
       <y>10</y>
-      <width>341</width>
-      <height>211</height>
+      <width>861</width>
+      <height>261</height>
      </rect>
     </property>
     <property name="title">
@@ -56,9 +56,9 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>80</y>
+       <y>100</y>
        <width>101</width>
-       <height>16</height>
+       <height>20</height>
       </rect>
      </property>
      <property name="text">
@@ -69,9 +69,9 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>100</y>
+       <y>120</y>
        <width>101</width>
-       <height>16</height>
+       <height>20</height>
       </rect>
      </property>
      <property name="text">
@@ -82,9 +82,9 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>120</y>
+       <y>220</y>
        <width>111</width>
-       <height>16</height>
+       <height>20</height>
       </rect>
      </property>
      <property name="text">
@@ -95,30 +95,20 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>140</y>
+       <y>200</y>
        <width>101</width>
-       <height>16</height>
+       <height>20</height>
       </rect>
      </property>
      <property name="text">
       <string>İçki Kullanımı:</string>
      </property>
     </widget>
-    <widget class="QDateEdit" name="dateEdit">
-     <property name="geometry">
-      <rect>
-       <x>160</x>
-       <y>80</y>
-       <width>151</width>
-       <height>22</height>
-      </rect>
-     </property>
-    </widget>
     <widget class="QComboBox" name="comboBox">
      <property name="geometry">
       <rect>
        <x>160</x>
-       <y>100</y>
+       <y>121</y>
        <width>151</width>
        <height>23</height>
       </rect>
@@ -163,9 +153,9 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>160</y>
+       <y>181</y>
        <width>101</width>
-       <height>16</height>
+       <height>20</height>
       </rect>
      </property>
      <property name="text">
@@ -176,9 +166,9 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>180</y>
+       <y>160</y>
        <width>101</width>
-       <height>16</height>
+       <height>20</height>
       </rect>
      </property>
      <property name="text">
@@ -189,7 +179,7 @@
      <property name="geometry">
       <rect>
        <x>160</x>
-       <y>180</y>
+       <y>161</y>
        <width>151</width>
        <height>23</height>
       </rect>
@@ -234,7 +224,7 @@
      <property name="geometry">
       <rect>
        <x>160</x>
-       <y>160</y>
+       <y>181</y>
        <width>151</width>
        <height>22</height>
       </rect>
@@ -244,7 +234,7 @@
      <property name="geometry">
       <rect>
        <x>160</x>
-       <y>120</y>
+       <y>221</y>
        <width>151</width>
        <height>23</height>
       </rect>
@@ -294,7 +284,7 @@
      <property name="geometry">
       <rect>
        <x>160</x>
-       <y>140</y>
+       <y>201</y>
        <width>151</width>
        <height>23</height>
       </rect>
@@ -320,24 +310,97 @@
       </property>
      </item>
     </widget>
-   </widget>
-   <widget class="QGroupBox" name="groupBox_2">
-    <property name="geometry">
-     <rect>
-      <x>350</x>
-      <y>10</y>
-      <width>441</width>
-      <height>211</height>
-     </rect>
-    </property>
-    <property name="title">
-     <string>Fotoğraf</string>
-    </property>
+    <widget class="QLineEdit" name="lineEdit_5">
+     <property name="geometry">
+      <rect>
+       <x>460</x>
+       <y>134</y>
+       <width>181</width>
+       <height>22</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_11">
+     <property name="geometry">
+      <rect>
+       <x>340</x>
+       <y>44</y>
+       <width>101</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Adres:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_12">
+     <property name="geometry">
+      <rect>
+       <x>340</x>
+       <y>114</y>
+       <width>101</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Telefon:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_15">
+     <property name="geometry">
+      <rect>
+       <x>340</x>
+       <y>134</y>
+       <width>101</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>E-Posta:</string>
+     </property>
+    </widget>
+    <widget class="QTextEdit" name="textEdit">
+     <property name="geometry">
+      <rect>
+       <x>460</x>
+       <y>44</y>
+       <width>181</width>
+       <height>71</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit_3">
+     <property name="geometry">
+      <rect>
+       <x>460</x>
+       <y>114</y>
+       <width>181</width>
+       <height>22</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton">
+     <property name="geometry">
+      <rect>
+       <x>680</x>
+       <y>190</y>
+       <width>171</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Fotoğraf Ekle</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>pixmaps/list-resource-add.png</normaloff>pixmaps/list-resource-add.png</iconset>
+     </property>
+    </widget>
     <widget class="QFrame" name="frame">
      <property name="geometry">
       <rect>
-       <x>250</x>
-       <y>30</y>
+       <x>680</x>
+       <y>40</y>
        <width>171</width>
        <height>151</height>
       </rect>
@@ -352,7 +415,7 @@
       <property name="geometry">
        <rect>
         <x>22</x>
-        <y>10</y>
+        <y>0</y>
         <width>131</width>
         <height>131</height>
        </rect>
@@ -368,125 +431,148 @@
       </property>
      </widget>
     </widget>
-    <widget class="QPushButton" name="pushButton">
+    <widget class="QComboBox" name="comboBox_5">
      <property name="geometry">
       <rect>
-       <x>20</x>
-       <y>30</y>
-       <width>211</width>
-       <height>71</height>
+       <x>160</x>
+       <y>141</y>
+       <width>151</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <item>
+      <property name="text">
+       <string>Seçiniz...</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Evli</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Bekar</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QLabel" name="label_10">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>140</y>
+       <width>101</width>
+       <height>20</height>
       </rect>
      </property>
      <property name="text">
-      <string>Fotoğraf Ekle</string>
-     </property>
-     <property name="icon">
-      <iconset>
-       <normaloff>pixmaps/list-resource-add.png</normaloff>pixmaps/list-resource-add.png</iconset>
+      <string>Medeni Durum:</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_2">
-     <property name="enabled">
-      <bool>false</bool>
-     </property>
+    <widget class="QDateEdit" name="dateEdit_2">
      <property name="geometry">
       <rect>
-       <x>20</x>
-       <y>110</y>
-       <width>211</width>
-       <height>71</height>
+       <x>160</x>
+       <y>101</y>
+       <width>151</width>
+       <height>22</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit_4">
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>80</y>
+       <width>151</width>
+       <height>22</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_13">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>80</y>
+       <width>101</width>
+       <height>16</height>
       </rect>
      </property>
      <property name="text">
-      <string>Fotoğraf Güncelle</string>
-     </property>
-     <property name="icon">
-      <iconset>
-       <normaloff>pixmaps/view-refresh.png</normaloff>pixmaps/view-refresh.png</iconset>
+      <string>Doğum Yeri:</string>
      </property>
     </widget>
    </widget>
-   <widget class="QGroupBox" name="groupBox_3">
+   <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>230</y>
-      <width>341</width>
-      <height>211</height>
+      <y>270</y>
+      <width>861</width>
+      <height>471</height>
      </rect>
     </property>
-    <property name="title">
-     <string>İletişim Bilgileri</string>
+    <property name="currentIndex">
+     <number>0</number>
     </property>
-    <widget class="QLabel" name="label_11">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>40</y>
-       <width>101</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Adres:</string>
-     </property>
+    <property name="documentMode">
+     <bool>false</bool>
+    </property>
+    <property name="tabsClosable">
+     <bool>false</bool>
+    </property>
+    <widget class="QWidget" name="tabDiseases">
+     <attribute name="title">
+      <string/>
+     </attribute>
     </widget>
-    <widget class="QTextEdit" name="textEdit">
-     <property name="geometry">
-      <rect>
-       <x>130</x>
-       <y>40</y>
-       <width>181</width>
-       <height>71</height>
-      </rect>
+    <widget class="QWidget" name="tab_2">
+     <property name="enabled">
+      <bool>true</bool>
      </property>
+     <attribute name="title">
+      <string/>
+     </attribute>
     </widget>
-    <widget class="QLabel" name="label_12">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>120</y>
-       <width>101</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Telefon:</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="lineEdit_3">
-     <property name="geometry">
-      <rect>
-       <x>130</x>
-       <y>120</y>
-       <width>181</width>
-       <height>22</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_15">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>140</y>
-       <width>101</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>E-posta:</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="lineEdit_5">
-     <property name="geometry">
-      <rect>
-       <x>130</x>
-       <y>140</y>
-       <width>181</width>
-       <height>22</height>
-      </rect>
-     </property>
-    </widget>
+   </widget>
+   <widget class="QDialogButtonBox" name="buttonBox">
+    <property name="geometry">
+     <rect>
+      <x>690</x>
+      <y>750</y>
+      <width>167</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="standardButtons">
+     <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_7">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>750</y>
+      <width>101</width>
+      <height>22</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_14">
+    <property name="geometry">
+     <rect>
+      <x>7</x>
+      <y>753</y>
+      <width>110</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>İlk Vizit Tarihi:</string>
+    </property>
    </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
