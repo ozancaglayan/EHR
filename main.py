@@ -7,6 +7,7 @@ from PyQt4 import QtCore
 from ui.ui_main import Ui_EHRMainWindow
 
 from ehrnewrecordwindow import EHRNewRecordWindow
+from ehrsearchrecordwindow import EHRSearchRecordWindow
 
 class EHR(QtGui.QDialog, Ui_EHRMainWindow):
     def __init__(self, parent=None):
@@ -15,8 +16,10 @@ class EHR(QtGui.QDialog, Ui_EHRMainWindow):
         self.setupUi(self)
 
         self.newRecordWindow = EHRNewRecordWindow(self)
+        self.searchRecordWindow = EHRSearchRecordWindow(self)
 
         self.pushButtonNewRecord.clicked.connect(self.newRecordWindow.show)
+        self.pushButtonSearchRecord.clicked.connect(self.searchRecordWindow.show)
         self.pushButtonExit.clicked.connect(QtGui.qApp.quit)
 
 
