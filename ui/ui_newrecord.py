@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'ui/newrecord.ui'
 #
-# Created: Thu Nov 24 16:19:31 2011
+# Created: Thu Nov 24 16:27:31 2011
 #      by: PyQt4 UI code generator 4.8.5
 #
 # WARNING! All changes made in this file will be lost!
