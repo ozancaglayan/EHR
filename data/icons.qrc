@@ -1,0 +1,11 @@
+<RCC>
+  <qresource prefix="/">
+    <file>view-refresh.png</file>
+    <file>address-book-new.png</file>
+    <file>application-exit.png</file>
+    <file>Health.png</file>
+    <file>list-resource-add.png</file>
+    <file>meeting-organizer.png</file>
+    <file>system-search.png</file>
+  </qresource>
+</RCC>
