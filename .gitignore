@@ -1,2 +1,2 @@
 *.pyc
-ui/ui_.*py
+ui/ui_*.py
