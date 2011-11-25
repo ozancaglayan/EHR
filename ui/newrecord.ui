@@ -483,13 +483,26 @@
        </property>
       </widget>
      </widget>
-     <widget class="QWidget" name="tab_2">
+     <widget class="QWidget" name="tabDiagnostics">
       <property name="enabled">
        <bool>true</bool>
       </property>
       <attribute name="title">
        <string>Tetkikler</string>
       </attribute>
+      <widget class="QPlainTextEdit" name="plainTextEditDiagnostics">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>941</width>
+         <height>301</height>
+        </rect>
+       </property>
+       <property name="tabChangesFocus">
+        <bool>true</bool>
+       </property>
+      </widget>
      </widget>
      <widget class="QWidget" name="tabDiseases">
       <attribute name="title">
@@ -509,6 +522,15 @@
        </property>
        <property name="selectedLabel">
         <string>&amp;Seçilenler:</string>
+       </property>
+       <property name="availableInsertionPolicy">
+        <enum>KActionSelector::Sorted</enum>
+       </property>
+       <property name="selectedInsertionPolicy">
+        <enum>KActionSelector::Sorted</enum>
+       </property>
+       <property name="showUpDownButtons">
+        <bool>false</bool>
        </property>
       </widget>
       <widget class="QLabel" name="label">
@@ -571,6 +593,12 @@
        <property name="selectedLabel">
         <string>&amp;Reçete:</string>
        </property>
+       <property name="selectedInsertionPolicy">
+        <enum>KActionSelector::Sorted</enum>
+       </property>
+       <property name="showUpDownButtons">
+        <bool>false</bool>
+       </property>
       </widget>
       <widget class="QLabel" name="label_3">
        <property name="geometry">
@@ -596,7 +624,7 @@
         <rect>
          <x>6</x>
          <y>250</y>
-         <width>920</width>
+         <width>951</width>
          <height>64</height>
         </rect>
        </property>
