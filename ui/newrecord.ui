@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>992</width>
+    <width>991</width>
     <height>754</height>
    </rect>
   </property>
@@ -413,47 +413,6 @@
      </layout>
     </widget>
    </item>
-   <item row="2" column="0" colspan="4">
-    <widget class="QTabWidget" name="tabWidget">
-     <property name="currentIndex">
-      <number>0</number>
-     </property>
-     <property name="documentMode">
-      <bool>false</bool>
-     </property>
-     <property name="tabsClosable">
-      <bool>false</bool>
-     </property>
-     <widget class="QWidget" name="tabDiseases">
-      <attribute name="title">
-       <string>Hastalıklar</string>
-      </attribute>
-     </widget>
-     <widget class="QWidget" name="tab_2">
-      <property name="enabled">
-       <bool>true</bool>
-      </property>
-      <attribute name="title">
-       <string>Tetkikler</string>
-      </attribute>
-     </widget>
-     <widget class="QWidget" name="tab">
-      <attribute name="title">
-       <string>Sayfa</string>
-      </attribute>
-     </widget>
-     <widget class="QWidget" name="tab_3">
-      <attribute name="title">
-       <string>Sayfa</string>
-      </attribute>
-     </widget>
-     <widget class="QWidget" name="tab_4">
-      <attribute name="title">
-       <string>Sayfa</string>
-      </attribute>
-     </widget>
-    </widget>
-   </item>
    <item row="3" column="0">
     <widget class="QLabel" name="label_14">
      <property name="text">
@@ -494,8 +453,162 @@
      </property>
     </widget>
    </item>
+   <item row="2" column="0" colspan="4">
+    <widget class="QTabWidget" name="tabWidget">
+     <property name="currentIndex">
+      <number>4</number>
+     </property>
+     <property name="documentMode">
+      <bool>false</bool>
+     </property>
+     <property name="tabsClosable">
+      <bool>false</bool>
+     </property>
+     <widget class="QWidget" name="tabHistory">
+      <attribute name="title">
+       <string>Hikaye</string>
+      </attribute>
+      <widget class="QPlainTextEdit" name="plainTextEdit">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>941</width>
+         <height>301</height>
+        </rect>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="tab_2">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <attribute name="title">
+       <string>Tetkikler</string>
+      </attribute>
+     </widget>
+     <widget class="QWidget" name="tabDiseases">
+      <attribute name="title">
+       <string>Hastalıklar</string>
+      </attribute>
+      <widget class="KActionSelector" name="kactionselector">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>10</y>
+         <width>961</width>
+         <height>218</height>
+        </rect>
+       </property>
+       <property name="availableLabel">
+        <string>&amp;ICD-10 Kodları</string>
+       </property>
+       <property name="selectedLabel">
+        <string>&amp;Seçilenler:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>230</y>
+         <width>101</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Detaylı Açıklama:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_2">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>250</y>
+         <width>901</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>.</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="tabImaging">
+      <attribute name="title">
+       <string>Görüntüleme</string>
+      </attribute>
+     </widget>
+     <widget class="QWidget" name="tabMedication">
+      <attribute name="title">
+       <string>Tedavi</string>
+      </attribute>
+      <widget class="KActionSelector" name="kactionselector_2">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>10</y>
+         <width>961</width>
+         <height>218</height>
+        </rect>
+       </property>
+       <property name="availableLabel">
+        <string>İ&amp;laçlar:</string>
+       </property>
+       <property name="selectedLabel">
+        <string>&amp;Reçete:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_3">
+       <property name="geometry">
+        <rect>
+         <x>5</x>
+         <y>230</y>
+         <width>53</width>
+         <height>14</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Notlar:</string>
+       </property>
+      </widget>
+      <widget class="QTextEdit" name="textEdit_2">
+       <property name="geometry">
+        <rect>
+         <x>6</x>
+         <y>250</y>
+         <width>920</width>
+         <height>64</height>
+        </rect>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+   </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>KActionSelector</class>
+   <extends>QWidget</extends>
+   <header>kactionselector.h</header>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="../data/icons.qrc"/>
   <include location="../data/icons.qrc"/>
