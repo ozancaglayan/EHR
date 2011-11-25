@@ -8,6 +8,10 @@ import glob
 for ui in glob.glob1("ui", "*.ui"):
     os.system("/usr/bin/pyuic4 -o ui/ui_%s.py ui/%s -g ehr" % (ui.split(".")[0], ui))
 
+
+# Add QVTKWidget
+os.system("sed -i 's:from QVTKWidget:from vtk:' ui/ui_newrecord.py")
+
 os.system("pyrcc4 data/icons.qrc -o icons_rc.py")
 
 try:

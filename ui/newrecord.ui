@@ -454,187 +454,6 @@
      </property>
     </spacer>
    </item>
-   <item row="2" column="0" colspan="5">
-    <widget class="QTabWidget" name="tabWidget">
-     <property name="currentIndex">
-      <number>4</number>
-     </property>
-     <property name="documentMode">
-      <bool>false</bool>
-     </property>
-     <property name="tabsClosable">
-      <bool>false</bool>
-     </property>
-     <widget class="QWidget" name="tabHistory">
-      <attribute name="title">
-       <string>Hikaye</string>
-      </attribute>
-      <widget class="QPlainTextEdit" name="plainTextEditStory">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>10</y>
-         <width>941</width>
-         <height>301</height>
-        </rect>
-       </property>
-       <property name="tabChangesFocus">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </widget>
-     <widget class="QWidget" name="tabDiagnostics">
-      <property name="enabled">
-       <bool>true</bool>
-      </property>
-      <attribute name="title">
-       <string>Tetkikler</string>
-      </attribute>
-      <widget class="QPlainTextEdit" name="plainTextEditDiagnostics">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>10</y>
-         <width>941</width>
-         <height>301</height>
-        </rect>
-       </property>
-       <property name="tabChangesFocus">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </widget>
-     <widget class="QWidget" name="tabDiseases">
-      <attribute name="title">
-       <string>Hastalıklar</string>
-      </attribute>
-      <widget class="KActionSelector" name="kactionselectorICD">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>10</y>
-         <width>961</width>
-         <height>218</height>
-        </rect>
-       </property>
-       <property name="availableLabel">
-        <string>&amp;ICD-10 Kodları</string>
-       </property>
-       <property name="selectedLabel">
-        <string>&amp;Seçilenler:</string>
-       </property>
-       <property name="availableInsertionPolicy">
-        <enum>KActionSelector::Sorted</enum>
-       </property>
-       <property name="selectedInsertionPolicy">
-        <enum>KActionSelector::Sorted</enum>
-       </property>
-       <property name="showUpDownButtons">
-        <bool>false</bool>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>230</y>
-         <width>101</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="text">
-        <string>Detaylı Açıklama:</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="labelICDDetailed">
-       <property name="geometry">
-        <rect>
-         <x>20</x>
-         <y>250</y>
-         <width>901</width>
-         <height>41</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>.</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-       </property>
-      </widget>
-     </widget>
-     <widget class="QWidget" name="tabImaging">
-      <attribute name="title">
-       <string>Görüntüleme</string>
-      </attribute>
-     </widget>
-     <widget class="QWidget" name="tabMedication">
-      <attribute name="title">
-       <string>Tedavi</string>
-      </attribute>
-      <widget class="KActionSelector" name="kactionselectorDrugs">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>10</y>
-         <width>961</width>
-         <height>218</height>
-        </rect>
-       </property>
-       <property name="availableLabel">
-        <string>İ&amp;laçlar:</string>
-       </property>
-       <property name="selectedLabel">
-        <string>&amp;Reçete:</string>
-       </property>
-       <property name="selectedInsertionPolicy">
-        <enum>KActionSelector::Sorted</enum>
-       </property>
-       <property name="showUpDownButtons">
-        <bool>false</bool>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_3">
-       <property name="geometry">
-        <rect>
-         <x>5</x>
-         <y>230</y>
-         <width>53</width>
-         <height>14</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="text">
-        <string>Notlar:</string>
-       </property>
-      </widget>
-      <widget class="QTextEdit" name="textEditDrugNotes">
-       <property name="geometry">
-        <rect>
-         <x>6</x>
-         <y>250</y>
-         <width>951</width>
-         <height>64</height>
-        </rect>
-       </property>
-       <property name="tabChangesFocus">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </widget>
-    </widget>
-   </item>
    <item row="3" column="4">
     <widget class="QPushButton" name="pushButtonSave">
      <property name="text">
@@ -657,6 +476,207 @@
      </property>
     </widget>
    </item>
+   <item row="2" column="0" colspan="5">
+    <widget class="QTabWidget" name="tabWidget">
+     <property name="currentIndex">
+      <number>3</number>
+     </property>
+     <property name="documentMode">
+      <bool>false</bool>
+     </property>
+     <property name="tabsClosable">
+      <bool>false</bool>
+     </property>
+     <widget class="QWidget" name="tabHistory">
+      <attribute name="title">
+       <string>Hikaye</string>
+      </attribute>
+      <layout class="QGridLayout" name="gridLayout_6">
+       <item row="0" column="0">
+        <widget class="QPlainTextEdit" name="plainTextEditStory">
+         <property name="tabChangesFocus">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tabDiagnostics">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <attribute name="title">
+       <string>Tetkikler</string>
+      </attribute>
+      <layout class="QGridLayout" name="gridLayout_7">
+       <item row="0" column="0">
+        <widget class="QPlainTextEdit" name="plainTextEditDiagnostics">
+         <property name="tabChangesFocus">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tabDiseases">
+      <attribute name="title">
+       <string>Hastalıklar</string>
+      </attribute>
+      <layout class="QGridLayout" name="gridLayout_8">
+       <item row="0" column="0">
+        <widget class="KActionSelector" name="kactionselectorICD">
+         <property name="availableLabel">
+          <string>&amp;ICD-10 Kodları</string>
+         </property>
+         <property name="selectedLabel">
+          <string>&amp;Seçilenler:</string>
+         </property>
+         <property name="availableInsertionPolicy">
+          <enum>KActionSelector::Sorted</enum>
+         </property>
+         <property name="selectedInsertionPolicy">
+          <enum>KActionSelector::Sorted</enum>
+         </property>
+         <property name="showUpDownButtons">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label">
+         <property name="font">
+          <font>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Detaylı Açıklama:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="labelICDDetailed">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>34</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>.</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tabImaging">
+      <attribute name="title">
+       <string>Görüntüleme</string>
+      </attribute>
+      <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,2">
+       <item>
+        <layout class="QGridLayout" name="gridLayout_11">
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_2">
+           <property name="text">
+            <string>DICOM Dosyaları:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0" colspan="2">
+          <widget class="QListView" name="listView"/>
+         </item>
+         <item row="2" column="0">
+          <widget class="QPushButton" name="pushButton">
+           <property name="text">
+            <string>Ekle</string>
+           </property>
+           <property name="icon">
+            <iconset resource="../data/icons.qrc">
+             <normaloff>:/list-add.png</normaloff>:/list-add.png</iconset>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QPushButton" name="pushButton_2">
+           <property name="text">
+            <string>Kaldır</string>
+           </property>
+           <property name="icon">
+            <iconset resource="../data/icons.qrc">
+             <normaloff>:/list-remove.png</normaloff>:/list-remove.png</iconset>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="groupBox_2">
+         <property name="title">
+          <string/>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_10">
+          <item row="0" column="0">
+           <widget class="QVTKWidget" name="qvtkWidget">
+            <property name="autoFillBackground">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tabMedication">
+      <attribute name="title">
+       <string>Tedavi</string>
+      </attribute>
+      <layout class="QGridLayout" name="gridLayout_9" rowstretch="3,0,1">
+       <item row="0" column="0">
+        <widget class="KActionSelector" name="kactionselectorDrugs">
+         <property name="availableLabel">
+          <string>İ&amp;laçlar:</string>
+         </property>
+         <property name="selectedLabel">
+          <string>&amp;Reçete:</string>
+         </property>
+         <property name="selectedInsertionPolicy">
+          <enum>KActionSelector::Sorted</enum>
+         </property>
+         <property name="showUpDownButtons">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_3">
+         <property name="font">
+          <font>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Notlar:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QTextEdit" name="textEditDrugNotes">
+         <property name="tabChangesFocus">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
   </layout>
  </widget>
  <customwidgets>
@@ -664,6 +684,11 @@
    <class>KActionSelector</class>
    <extends>QWidget</extends>
    <header>kactionselector.h</header>
+  </customwidget>
+  <customwidget>
+   <class>QVTKWidget</class>
+   <extends>QWidget</extends>
+   <header>QVTKWidget.h</header>
   </customwidget>
  </customwidgets>
  <resources>
