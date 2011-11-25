@@ -12,5 +12,18 @@ class EHRSearchRecordWindow(QtGui.QDialog, Ui_SearchRecordWindow):
 
         self.setupUi(self)
 
-        # Sİnyalleri filan burda bagla
+        # Signal/Slot stuff
         self.pushButtonCloseSearch.clicked.connect(self.hide)
+        self.lineEditSearch.textChanged.connect(self.searchRecord)
+
+
+    def searchRecord(self):
+        self.treeWidgetSearch.clear()
+
+        term = self.lineEditSearch.text()
+        searchResult = self.parent().dbManager.searchRecord(term, term)
+
+        result = QtGui.QTreeWidgetItem(self.treeWidgetSearch)
+
+        for i, column in enumerate(searchResult):
+            result.setText(i, column)

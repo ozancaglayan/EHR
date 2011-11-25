@@ -59,6 +59,10 @@ INSERT INTO records VALUES(NULL,
 '%(drugs)s',
 '%(drugNotes)s')"""
 
+        self.search_query = """
+SELECT id,firstname,lastname,sex,firstvisit,phone FROM records WHERE firstname LIKE '%%%s%%' OR
+lastname LIKE '%%%s%%'"""
+
 
     def open(self):
         retval = self.handle.open()
@@ -76,11 +80,19 @@ INSERT INTO records VALUES(NULL,
 
     def insertNewRecord(self, data_dict):
         query = QSqlQuery(self.handle)
-        print self.insert_query % data_dict
         return query.exec_(self.insert_query % data_dict)
 
     def updateRecord(self, data_dict):
         pass
 
-    def searchRecord(self, data_dict):
-        pass
+    def searchRecord(self, firstName, lastName):
+        query = QSqlQuery(self.handle)
+        retval = query.exec_(self.search_query % (firstName, lastName))
+
+        result = []
+
+        while query.next():
+            for i in range(6):
+                result.append(query.value(i).toString())
+
+        return result

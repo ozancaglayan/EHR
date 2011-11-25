@@ -36,34 +36,21 @@
           </property>
          </widget>
         </item>
-        <item>
-         <widget class="QPushButton" name="pushButtonClearSearch">
-          <property name="text">
-           <string>Temizle</string>
-          </property>
-          <property name="icon">
-           <iconset resource="../data/icons.qrc">
-            <normaloff>:/list-remove.png</normaloff>:/list-remove.png</iconset>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="pushButtonSearch">
-          <property name="text">
-           <string>Ara</string>
-          </property>
-          <property name="icon">
-           <iconset resource="../data/icons.qrc">
-            <normaloff>:/system-search.png</normaloff>:/system-search.png</iconset>
-          </property>
-         </widget>
-        </item>
        </layout>
       </item>
       <item row="1" column="0">
        <widget class="QTreeWidget" name="treeWidgetSearch">
+        <property name="rootIsDecorated">
+         <bool>false</bool>
+        </property>
+        <property name="itemsExpandable">
+         <bool>false</bool>
+        </property>
         <property name="sortingEnabled">
          <bool>true</bool>
+        </property>
+        <property name="expandsOnDoubleClick">
+         <bool>false</bool>
         </property>
         <column>
          <property name="text">
