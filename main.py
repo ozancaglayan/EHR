@@ -19,6 +19,7 @@ class EHR(QtGui.QDialog, Ui_EHRMainWindow):
 
         self.setupUi(self)
 
+        self.newRecordWindow = None
         self.searchRecordWindow = EHRSearchRecordWindow(self)
 
         self.dbManager = EHRDBManager()

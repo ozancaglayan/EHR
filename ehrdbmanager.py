@@ -32,6 +32,7 @@ firstvisit datetime,
 email varchar(40),
 history text,
 diseases text,
+diagnostics text,
 drugs text,
 drugnotes text)"""
 
@@ -53,6 +54,7 @@ INSERT INTO records VALUES(NULL,
 '%(firstVisit)s',
 '%(email)s',
 '%(history)s',
+'%(diagnostics)s',
 '%(diseases)s',
 '%(drugs)s',
 '%(drugNotes)s')"""
@@ -74,6 +76,7 @@ INSERT INTO records VALUES(NULL,
 
     def insertNewRecord(self, data_dict):
         query = QSqlQuery(self.handle)
+        print self.insert_query % data_dict
         return query.exec_(self.insert_query % data_dict)
 
     def updateRecord(self, data_dict):

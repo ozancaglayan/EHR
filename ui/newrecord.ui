@@ -49,7 +49,7 @@
          </widget>
         </item>
         <item row="0" column="2">
-         <widget class="QLineEdit" name="lineEditName"/>
+         <widget class="QLineEdit" name="lineEditFirstName"/>
         </item>
         <item row="1" column="0" colspan="2">
          <widget class="QLabel" name="label_13">
@@ -62,7 +62,7 @@
          </widget>
         </item>
         <item row="1" column="2">
-         <widget class="QLineEdit" name="lineEditSurname"/>
+         <widget class="QLineEdit" name="lineEditLastName"/>
         </item>
         <item row="2" column="0" colspan="2">
          <widget class="QLabel" name="label_16">
@@ -317,19 +317,6 @@
           </property>
          </widget>
         </item>
-        <item row="0" column="1" colspan="2">
-         <widget class="QTextEdit" name="textEditAddress">
-          <property name="maximumSize">
-           <size>
-            <width>16777215</width>
-            <height>100</height>
-           </size>
-          </property>
-          <property name="tabChangesFocus">
-           <bool>true</bool>
-          </property>
-         </widget>
-        </item>
         <item row="2" column="0">
          <widget class="QLabel" name="label_12">
           <property name="text">
@@ -362,6 +349,19 @@
            </size>
           </property>
          </spacer>
+        </item>
+        <item row="0" column="1" colspan="2">
+         <widget class="QPlainTextEdit" name="plainTextEditAddress">
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>100</height>
+           </size>
+          </property>
+          <property name="tabChangesFocus">
+           <bool>true</bool>
+          </property>
+         </widget>
         </item>
        </layout>
       </item>
@@ -542,35 +542,6 @@
          </property>
         </widget>
        </item>
-       <item row="1" column="0">
-        <widget class="QLabel" name="label">
-         <property name="font">
-          <font>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>Detaylı Açıklama:</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="0">
-        <widget class="QLabel" name="labelICDDetailed">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>34</height>
-          </size>
-         </property>
-         <property name="text">
-          <string>.</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-         </property>
-        </widget>
-       </item>
       </layout>
      </widget>
      <widget class="QWidget" name="tabImaging">
@@ -587,11 +558,8 @@
            </property>
           </widget>
          </item>
-         <item row="1" column="0" colspan="2">
-          <widget class="QListView" name="listView"/>
-         </item>
          <item row="2" column="0">
-          <widget class="QPushButton" name="pushButton">
+          <widget class="QPushButton" name="pushButtonAddDICOM">
            <property name="text">
             <string>Ekle</string>
            </property>
@@ -602,13 +570,23 @@
           </widget>
          </item>
          <item row="2" column="1">
-          <widget class="QPushButton" name="pushButton_2">
+          <widget class="QPushButton" name="pushButtonRemoveDICOM">
            <property name="text">
             <string>Kaldır</string>
            </property>
            <property name="icon">
             <iconset resource="../data/icons.qrc">
              <normaloff>:/list-remove.png</normaloff>:/list-remove.png</iconset>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0" colspan="2">
+          <widget class="QListWidget" name="listWidgetDICOM">
+           <property name="alternatingRowColors">
+            <bool>true</bool>
+           </property>
+           <property name="selectionMode">
+            <enum>QAbstractItemView::ExtendedSelection</enum>
            </property>
           </widget>
          </item>
@@ -667,7 +645,7 @@
         </widget>
        </item>
        <item row="2" column="0">
-        <widget class="QTextEdit" name="textEditDrugNotes">
+        <widget class="QPlainTextEdit" name="plainTextEditDrugNotes">
          <property name="tabChangesFocus">
           <bool>true</bool>
          </property>
@@ -691,6 +669,31 @@
    <header>QVTKWidget.h</header>
   </customwidget>
  </customwidgets>
+ <tabstops>
+  <tabstop>lineEditFirstName</tabstop>
+  <tabstop>lineEditLastName</tabstop>
+  <tabstop>lineEditBirthPlace</tabstop>
+  <tabstop>dateEditBirthDate</tabstop>
+  <tabstop>comboBoxSex</tabstop>
+  <tabstop>comboBoxMaritalStatus</tabstop>
+  <tabstop>comboBoxOccupation</tabstop>
+  <tabstop>lineEditSGKNo</tabstop>
+  <tabstop>comboBoxDrink</tabstop>
+  <tabstop>comboBoxSmoke</tabstop>
+  <tabstop>plainTextEditAddress</tabstop>
+  <tabstop>lineEditPhoneNumber</tabstop>
+  <tabstop>lineEditEmail</tabstop>
+  <tabstop>pushButtonAddPhoto</tabstop>
+  <tabstop>tabWidget</tabstop>
+  <tabstop>plainTextEditStory</tabstop>
+  <tabstop>listWidgetDICOM</tabstop>
+  <tabstop>pushButtonAddDICOM</tabstop>
+  <tabstop>pushButtonRemoveDICOM</tabstop>
+  <tabstop>plainTextEditDrugNotes</tabstop>
+  <tabstop>pushButtonClose</tabstop>
+  <tabstop>pushButtonSave</tabstop>
+  <tabstop>plainTextEditDiagnostics</tabstop>
+ </tabstops>
  <resources>
   <include location="../data/icons.qrc"/>
  </resources>
