@@ -49,7 +49,7 @@
          </widget>
         </item>
         <item row="0" column="2">
-         <widget class="QLineEdit" name="lineEdit_4"/>
+         <widget class="QLineEdit" name="lineEditName"/>
         </item>
         <item row="1" column="0" colspan="2">
          <widget class="QLabel" name="label_13">
@@ -62,7 +62,7 @@
          </widget>
         </item>
         <item row="1" column="2">
-         <widget class="QLineEdit" name="lineEdit_6"/>
+         <widget class="QLineEdit" name="lineEditSurname"/>
         </item>
         <item row="2" column="0" colspan="2">
          <widget class="QLabel" name="label_16">
@@ -75,7 +75,7 @@
          </widget>
         </item>
         <item row="2" column="2">
-         <widget class="QLineEdit" name="lineEdit_8"/>
+         <widget class="QLineEdit" name="lineEditBirthPlace"/>
         </item>
         <item row="3" column="0" colspan="2">
          <widget class="QLabel" name="label_17">
@@ -88,7 +88,7 @@
          </widget>
         </item>
         <item row="3" column="2">
-         <widget class="QDateEdit" name="dateEdit_3"/>
+         <widget class="QDateEdit" name="dateEditBirthDate"/>
         </item>
         <item row="4" column="0" colspan="2">
          <widget class="QLabel" name="label_18">
@@ -101,7 +101,7 @@
          </widget>
         </item>
         <item row="4" column="2">
-         <widget class="QComboBox" name="comboBox_6">
+         <widget class="QComboBox" name="comboBoxSex">
           <item>
            <property name="text">
             <string>Seçiniz...</string>
@@ -130,7 +130,7 @@
          </widget>
         </item>
         <item row="5" column="2">
-         <widget class="QComboBox" name="comboBox_7">
+         <widget class="QComboBox" name="comboBoxMaritalStatus">
           <item>
            <property name="text">
             <string>Seçiniz...</string>
@@ -159,7 +159,12 @@
          </widget>
         </item>
         <item row="6" column="2">
-         <widget class="QComboBox" name="comboBox_8">
+         <widget class="QComboBox" name="comboBoxOccupation">
+          <item>
+           <property name="text">
+            <string>Seçiniz...</string>
+           </property>
+          </item>
           <item>
            <property name="text">
             <string>Serbest Meslek</string>
@@ -208,7 +213,7 @@
          </widget>
         </item>
         <item row="7" column="2">
-         <widget class="QLineEdit" name="lineEdit_9"/>
+         <widget class="QLineEdit" name="lineEditSGKNo"/>
         </item>
         <item row="8" column="0" colspan="2">
          <widget class="QLabel" name="label_22">
@@ -221,7 +226,7 @@
          </widget>
         </item>
         <item row="8" column="2">
-         <widget class="QComboBox" name="comboBox_9">
+         <widget class="QComboBox" name="comboBoxDrink">
           <item>
            <property name="text">
             <string>Kullanmıyor</string>
@@ -255,7 +260,7 @@
          </widget>
         </item>
         <item row="9" column="2">
-         <widget class="QComboBox" name="comboBox_10">
+         <widget class="QComboBox" name="comboBoxSmoke">
           <item>
            <property name="text">
             <string>Kullanmıyor</string>
@@ -313,12 +318,15 @@
          </widget>
         </item>
         <item row="0" column="1" colspan="2">
-         <widget class="QTextEdit" name="textEdit">
+         <widget class="QTextEdit" name="textEditAddress">
           <property name="maximumSize">
            <size>
             <width>16777215</width>
             <height>100</height>
            </size>
+          </property>
+          <property name="tabChangesFocus">
+           <bool>true</bool>
           </property>
          </widget>
         </item>
@@ -330,7 +338,7 @@
          </widget>
         </item>
         <item row="2" column="1">
-         <widget class="QLineEdit" name="lineEdit_3"/>
+         <widget class="QLineEdit" name="lineEditPhoneNumber"/>
         </item>
         <item row="3" column="0">
          <widget class="QLabel" name="label_15">
@@ -340,7 +348,7 @@
          </widget>
         </item>
         <item row="3" column="1">
-         <widget class="QLineEdit" name="lineEdit_5"/>
+         <widget class="QLineEdit" name="lineEditEmail"/>
         </item>
         <item row="4" column="1">
          <spacer name="verticalSpacer_2">
@@ -369,7 +377,7 @@
           </property>
           <layout class="QGridLayout" name="gridLayout_3">
            <item row="0" column="0">
-            <widget class="QLabel" name="label_9">
+            <widget class="QLabel" name="labelPhoto">
              <property name="text">
               <string/>
              </property>
@@ -385,7 +393,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="pushButton">
+         <widget class="QPushButton" name="pushButtonAddPhoto">
           <property name="text">
            <string>Fotoğraf Ekle</string>
           </property>
@@ -461,7 +469,7 @@
       <attribute name="title">
        <string>Hikaye</string>
       </attribute>
-      <widget class="QPlainTextEdit" name="plainTextEdit">
+      <widget class="QPlainTextEdit" name="plainTextEditStory">
        <property name="geometry">
         <rect>
          <x>10</x>
@@ -469,6 +477,9 @@
          <width>941</width>
          <height>301</height>
         </rect>
+       </property>
+       <property name="tabChangesFocus">
+        <bool>true</bool>
        </property>
       </widget>
      </widget>
@@ -484,7 +495,7 @@
       <attribute name="title">
        <string>Hastalıklar</string>
       </attribute>
-      <widget class="KActionSelector" name="kactionselector">
+      <widget class="KActionSelector" name="kactionselectorICD">
        <property name="geometry">
         <rect>
          <x>0</x>
@@ -519,7 +530,7 @@
         <string>Detaylı Açıklama:</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_2">
+      <widget class="QLabel" name="labelICDDetailed">
        <property name="geometry">
         <rect>
          <x>20</x>
@@ -545,7 +556,7 @@
       <attribute name="title">
        <string>Tedavi</string>
       </attribute>
-      <widget class="KActionSelector" name="kactionselector_2">
+      <widget class="KActionSelector" name="kactionselectorDrugs">
        <property name="geometry">
         <rect>
          <x>0</x>
@@ -580,7 +591,7 @@
         <string>Notlar:</string>
        </property>
       </widget>
-      <widget class="QTextEdit" name="textEdit_2">
+      <widget class="QTextEdit" name="textEditDrugNotes">
        <property name="geometry">
         <rect>
          <x>6</x>
@@ -589,12 +600,15 @@
          <height>64</height>
         </rect>
        </property>
+       <property name="tabChangesFocus">
+        <bool>true</bool>
+       </property>
       </widget>
      </widget>
     </widget>
    </item>
    <item row="3" column="4">
-    <widget class="QPushButton" name="pushButton_2">
+    <widget class="QPushButton" name="pushButtonSave">
      <property name="text">
       <string>Kaydet</string>
      </property>
@@ -605,7 +619,7 @@
     </widget>
    </item>
    <item row="3" column="3">
-    <widget class="QPushButton" name="pushButton_3">
+    <widget class="QPushButton" name="pushButtonClose">
      <property name="text">
       <string>Kapat</string>
      </property>
