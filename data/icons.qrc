@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="/">
+    <file>document-save.png</file>
     <file>view-refresh.png</file>
     <file>address-book-new.png</file>
     <file>application-exit.png</file>

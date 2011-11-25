@@ -18,7 +18,7 @@
     <normaloff>:/Health.png</normaloff>:/Health.png</iconset>
   </property>
   <layout class="QGridLayout" name="gridLayout_5">
-   <item row="0" column="0" colspan="4">
+   <item row="0" column="0" colspan="5">
     <widget class="QGroupBox" name="groupBox">
      <property name="maximumSize">
       <size>
@@ -446,14 +446,7 @@
      </property>
     </spacer>
    </item>
-   <item row="3" column="3">
-    <widget class="QDialogButtonBox" name="buttonBox_2">
-     <property name="standardButtons">
-      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
-     </property>
-    </widget>
-   </item>
-   <item row="2" column="0" colspan="4">
+   <item row="2" column="0" colspan="5">
     <widget class="QTabWidget" name="tabWidget">
      <property name="currentIndex">
       <number>4</number>
@@ -600,6 +593,28 @@
      </widget>
     </widget>
    </item>
+   <item row="3" column="4">
+    <widget class="QPushButton" name="pushButton_2">
+     <property name="text">
+      <string>Kaydet</string>
+     </property>
+     <property name="icon">
+      <iconset resource="../data/icons.qrc">
+       <normaloff>:/document-save.png</normaloff>:/document-save.png</iconset>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="3">
+    <widget class="QPushButton" name="pushButton_3">
+     <property name="text">
+      <string>Kapat</string>
+     </property>
+     <property name="icon">
+      <iconset resource="../data/icons.qrc">
+       <normaloff>:/application-exit.png</normaloff>:/application-exit.png</iconset>
+     </property>
+    </widget>
+   </item>
   </layout>
  </widget>
  <customwidgets>
@@ -610,7 +625,6 @@
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="../data/icons.qrc"/>
   <include location="../data/icons.qrc"/>
  </resources>
  <connections/>
