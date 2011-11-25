@@ -20,7 +20,7 @@ class EHR(QtGui.QDialog, Ui_EHRMainWindow):
         self.setupUi(self)
 
         self.newRecordWindow = None
-        self.searchRecordWindow = EHRSearchRecordWindow(self)
+        self.searchRecordWindow = None
 
         self.dbManager = EHRDBManager()
         if not self.dbManager.open():
@@ -33,9 +33,8 @@ class EHR(QtGui.QDialog, Ui_EHRMainWindow):
 
         # Connect signals for buttons
         self.pushButtonNewRecord.clicked.connect(self.createNewRecordWindow)
-        self.pushButtonSearchRecord.clicked.connect(self.searchRecordWindow.show)
+        self.pushButtonSearchRecord.clicked.connect(self.createNewSearchWindow)
         self.pushButtonExit.clicked.connect(QtGui.qApp.quit)
-
 
     def createNewRecordWindow(self):
         self.newRecordWindow = EHRNewRecordWindow(self)
@@ -44,6 +43,10 @@ class EHR(QtGui.QDialog, Ui_EHRMainWindow):
         self.newRecordWindow.kactionselectorICD.availableListWidget().addItems(sorted(self.icd10))
 
         self.newRecordWindow.show()
+
+    def createNewSearchWindow(self):
+        self.searchRecordWindow = EHRSearchRecordWindow(self)
+        self.searchRecordWindow.show()
 
 
 if __name__ == "__main__":

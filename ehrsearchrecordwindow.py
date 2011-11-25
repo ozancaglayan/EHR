@@ -13,3 +13,4 @@ class EHRSearchRecordWindow(QtGui.QDialog, Ui_SearchRecordWindow):
         self.setupUi(self)
 
         # Sİnyalleri filan burda bagla
+        self.pushButtonCloseSearch.clicked.connect(self.hide)

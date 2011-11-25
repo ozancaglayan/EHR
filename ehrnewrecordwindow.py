@@ -25,6 +25,8 @@ class EHRNewRecordWindow(QtGui.QDialog, Ui_NewRecordWindow):
         self.pushButtonAddDICOM.clicked.connect(self.slotShowDICOMFileBrowser)
         self.pushButtonRemoveDICOM.clicked.connect(self.slotRemoveSelectedDICOMFiles)
 
+        self.listWidgetDICOM.itemDoubleClicked.connect(self.slotShowDICOMImage)
+
         self.dicomFiles = {}
 
     def getDiseases(self):
@@ -47,6 +49,9 @@ class EHRNewRecordWindow(QtGui.QDialog, Ui_NewRecordWindow):
         for dicomFile in self.listWidgetDICOM.selectedItems():
             self.listWidgetDICOM.takeItem(self.listWidgetDICOM.row(dicomFile))
 
+    def slotShowDICOMImage(self, item):
+        os.system("gdcmviewer '%s'" % item.data(QtCore.Qt.UserRole).toString())
+
 
     def slotShowDICOMFileBrowser(self):
         fileDialog = QtGui.QFileDialog(self, unicode("DICOM dizini seçin..."),
@@ -56,10 +61,10 @@ class EHRNewRecordWindow(QtGui.QDialog, Ui_NewRecordWindow):
 
         if fileDialog.exec_():
             fileDialog.selectedFiles().clear()
-            self.listWidgetDICOM.addItems(fileDialog.selectedFiles())
-            #for file_ in self.fileDialog.selectedFiles():
-            #    self.listWidgetDICOM.addItem(QtCore.QString(os.path.basename(unicode(file_))))
-            #    file_.setData(0, QtCore.QVariant(unicode(file_)))
+            #self.listWidgetDICOM.addItems(fileDialog.selectedFiles())
+            for file_ in fileDialog.selectedFiles():
+                item = QtGui.QListWidgetItem(os.path.basename(unicode(file_)), self.listWidgetDICOM)
+                item.setData(QtCore.Qt.UserRole, unicode(file_))
 
 
 

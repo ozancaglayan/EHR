@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>992</width>
-    <height>754</height>
+    <width>848</width>
+    <height>752</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,10 +17,120 @@
    <iconset resource="../data/icons.qrc">
     <normaloff>:/Health.png</normaloff>:/Health.png</iconset>
   </property>
-  <layout class="QGridLayout" name="gridLayout_5"/>
+  <layout class="QGridLayout" name="gridLayout_2">
+   <item row="0" column="0">
+    <widget class="QGroupBox" name="groupBox">
+     <property name="title">
+      <string/>
+     </property>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="0" column="0">
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QLineEdit" name="lineEditSearch">
+          <property name="text">
+           <string/>
+          </property>
+          <property name="placeholderText">
+           <string>Aramak istediğiniz ifadeyi girin...</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButtonClearSearch">
+          <property name="text">
+           <string>Temizle</string>
+          </property>
+          <property name="icon">
+           <iconset resource="../data/icons.qrc">
+            <normaloff>:/list-remove.png</normaloff>:/list-remove.png</iconset>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButtonSearch">
+          <property name="text">
+           <string>Ara</string>
+          </property>
+          <property name="icon">
+           <iconset resource="../data/icons.qrc">
+            <normaloff>:/system-search.png</normaloff>:/system-search.png</iconset>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="1" column="0">
+       <widget class="QTreeWidget" name="treeWidgetSearch">
+        <property name="sortingEnabled">
+         <bool>true</bool>
+        </property>
+        <column>
+         <property name="text">
+          <string>ID</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Ad</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Soyad</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Cinsiyet</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>İlk Vizit</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Telefon No.</string>
+         </property>
+        </column>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButtonCloseSearch">
+       <property name="text">
+        <string>Kapat</string>
+       </property>
+       <property name="icon">
+        <iconset resource="../data/icons.qrc">
+         <normaloff>:/application-exit.png</normaloff>:/application-exit.png</iconset>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
  </widget>
  <resources>
-  <include location="../data/icons.qrc"/>
   <include location="../data/icons.qrc"/>
  </resources>
  <connections/>
