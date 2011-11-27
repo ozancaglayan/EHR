@@ -18,6 +18,9 @@ class EHRNewRecordWindow(QtGui.QDialog, Ui_NewRecordWindow):
         self.pushButtonClose.clicked.connect(self.hide)
         self.pushButtonSave.clicked.connect(self.saveRecord)
 
+        # Photo
+        self.pushButtonAddPhoto.clicked.connect(self.slotShowPhotoBrowser)
+
         # Connect DICOM buttons
         self.pushButtonAddDICOM.clicked.connect(self.slotShowDICOMFileBrowser)
         self.pushButtonRemoveDICOM.clicked.connect(self.slotRemoveSelectedDICOMFiles)
@@ -44,7 +47,7 @@ class EHRNewRecordWindow(QtGui.QDialog, Ui_NewRecordWindow):
                 self.comboBoxDrink.setCurrentIndex(self.comboBoxDrink.findText(result[9]))
                 self.plainTextEditAddress.setPlainText(result[10])
                 self.lineEditPhoneNumber.setText(result[11])
-                # photo 12
+                #self.labelPhoto.setPixmap(QtGui.QPixmap(result[12].data()))
                 self.labelFirstVisit.setText(result[13])
                 self.lineEditEmail.setText(result[14])
                 self.plainTextEditStory.setPlainText(result[15])
@@ -101,6 +104,19 @@ class EHRNewRecordWindow(QtGui.QDialog, Ui_NewRecordWindow):
                 item = QtGui.QListWidgetItem(os.path.basename(unicode(file_)), self.listWidgetDICOM)
                 item.setData(QtCore.Qt.UserRole, unicode(file_))
 
+    def slotShowPhotoBrowser(self):
+            fileDialog = QtGui.QFileDialog(self, unicode("Bir Fotoğraf Seçin..."),
+                                           os.path.expanduser("~"),
+                                           unicode("Görüntü Dosyaları (*.jpg *.jpeg *.png *.bmp)"))
+            fileDialog.setFileMode(QtGui.QFileDialog.ExistingFile)
+
+            if fileDialog.exec_():
+                fileDialog.selectedFiles().clear()
+                pixmap = QtGui.QPixmap(fileDialog.selectedFiles()[0])
+                #pixmap = pixmap.scaled(128, 128, QtCore.Qt.KeepAspectRatio)
+                self.labelPhoto.setPixmap(pixmap.scaled(128, 128, QtCore.Qt.KeepAspectRatio))
+
+
     def saveRecord(self):
         # FIXME: Check for empty fields
         # Saves the record into the database
@@ -116,7 +132,7 @@ class EHRNewRecordWindow(QtGui.QDialog, Ui_NewRecordWindow):
              "smoke"        : unicode(self.comboBoxDrink.currentText()),
              "address"      : unicode(self.plainTextEditAddress.toPlainText()),
              "phone"        : unicode(self.lineEditPhoneNumber.text()),
-             "photo"        : unicode("NONE"),
+             "photo"        : self.labelPhoto.pixmap(),
              "firstVisit"   : unicode(self.labelFirstVisit.text()),
              "email"        : unicode(self.lineEditEmail.text()),
              "history"      : unicode(self.plainTextEditStory.toPlainText()),
@@ -124,6 +140,9 @@ class EHRNewRecordWindow(QtGui.QDialog, Ui_NewRecordWindow):
              "diseases"     : unicode(self.getDiseases()),
              "drugs"        : unicode(self.getDrugs()),
              "drugNotes"    : unicode(self.plainTextEditDrugNotes.toPlainText())}
+
+        if self.labelPhoto.pixmap():
+            print self.labelPhoto.pixmap()
 
         retval = self.parent().dbManager.insertNewRecord(d)
 

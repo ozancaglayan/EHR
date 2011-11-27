@@ -50,7 +50,7 @@ INSERT INTO records VALUES(NULL,
 '%(smoke)s',
 '%(address)s',
 '%(phone)s',
-'%(photo)s',
+:photo,
 '%(firstVisit)s',
 '%(email)s',
 '%(history)s',
@@ -83,8 +83,11 @@ SELECT * FROM records WHERE id='%s'"""
 
     def insertNewRecord(self, data_dict):
         query = QSqlQuery(self.handle)
-        print (self.insert_query % data_dict)
-        return query.exec_(self.insert_query % data_dict)
+        if query.prepare(self.insert_query % data_dict):
+            query.bindValue(":photo", data_dict['photo'])
+            return query.exec_()
+        else:
+            return False
 
     def updateRecord(self, data_dict):
         pass
@@ -98,6 +101,7 @@ SELECT * FROM records WHERE id='%s'"""
         while query.next():
             # 21: number of total fields, skip first id field
             result = [query.value(i).toString() for i in range(1,21)]
+            result[12] = query.value(13).data()
 
         return result
 
