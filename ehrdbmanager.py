@@ -63,6 +63,9 @@ INSERT INTO records VALUES(NULL,
 SELECT id,firstname,lastname,sex,firstvisit,phone FROM records WHERE firstname LIKE '%%%s%%' OR
 lastname LIKE '%%%s%%'"""
 
+        self.fetch_query = """
+SELECT * FROM records WHERE id='%s'"""
+
 
     def open(self):
         retval = self.handle.open()
@@ -80,19 +83,33 @@ lastname LIKE '%%%s%%'"""
 
     def insertNewRecord(self, data_dict):
         query = QSqlQuery(self.handle)
+        print (self.insert_query % data_dict)
         return query.exec_(self.insert_query % data_dict)
 
     def updateRecord(self, data_dict):
         pass
 
+    def getRecord(self, id_):
+        query = QSqlQuery(self.handle)
+        query.exec_(self.fetch_query % id_)
+
+        result = None
+
+        while query.next():
+            # 21: number of total fields, skip first id field
+            result = [query.value(i).toString() for i in range(1,21)]
+
+        return result
+
+
     def searchRecord(self, firstName, lastName):
         query = QSqlQuery(self.handle)
         retval = query.exec_(self.search_query % (firstName, lastName))
 
-        result = []
+        results = []
 
         while query.next():
-            for i in range(6):
-                result.append(query.value(i).toString())
+            result = [query.value(i).toString() for i in range(6)]
+            results.append(result)
 
-        return result
+        return results
