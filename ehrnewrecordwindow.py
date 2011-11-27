@@ -89,7 +89,22 @@ class EHRNewRecordWindow(QtGui.QDialog, Ui_NewRecordWindow):
             self.listWidgetDICOM.takeItem(self.listWidgetDICOM.row(dicomFile))
 
     def slotShowDICOMImage(self, item):
-        os.system("gdcmviewer '%s'" % item.data(QtCore.Qt.UserRole).toString())
+        import vtk
+        reader = vtk.vtkDICOMImageReader()
+        dicom_file = unicode(item.data(QtCore.Qt.UserRole).toString())
+        reader.SetFileName(dicom_file)
+        reader.Update()
+
+        imageViewer = vtk.vtkImageViewer()
+        imageViewer.SetInputConnection(reader.GetOutputPort())
+
+        self.qvtkWidget.SetRenderWindow(imageViewer.GetRenderWindow())
+        imageViewer.SetupInteractor(self.qvtkWidget.GetRenderWindow().GetInteractor())
+
+        imageViewer.SetColorLevel(128)
+        imageViewer.SetColorWindow(256)
+        imageViewer.SetSize(self.qvtkWidget.geometry().width(), self.qvtkWidget.geometry().height())
+        #os.system("gdcmviewer '%s'" % item.data(QtCore.Qt.UserRole).toString())
 
 
     def slotShowDICOMFileBrowser(self):
