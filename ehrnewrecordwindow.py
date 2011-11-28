@@ -6,6 +6,9 @@ import os
 from PyQt4 import QtGui
 from PyQt4 import QtCore
 
+import vtkgdcm
+import vtk
+
 from ui.ui_newrecord import Ui_NewRecordWindow
 
 class EHRNewRecordWindow(QtGui.QDialog, Ui_NewRecordWindow):
@@ -13,6 +16,9 @@ class EHRNewRecordWindow(QtGui.QDialog, Ui_NewRecordWindow):
         QtGui.QDialog.__init__(self, parent)
 
         self.setupUi(self)
+
+        # Hold the id
+        self.id_ = id_
 
         # Connect the close button
         self.pushButtonClose.clicked.connect(self.hide)
@@ -27,9 +33,12 @@ class EHRNewRecordWindow(QtGui.QDialog, Ui_NewRecordWindow):
         self.listWidgetDICOM.itemDoubleClicked.connect(self.slotShowDICOMImage)
 
         # New or show record window?
-        if id_:
+        if self.id_:
+            # Change button's text
+            self.pushButtonSave.setText(unicode("Güncelle"))
+
             # We'll show existing record
-            result = self.parent().parent().dbManager.getRecord(id_)
+            result = self.parent().parent().dbManager.getRecord(self.id_)
 
             self.kactionselectorDrugs.availableListWidget().addItems(self.parent().parent().drugs)
             self.kactionselectorICD.availableListWidget().addItems(sorted(self.parent().parent().icd10))
@@ -47,18 +56,38 @@ class EHRNewRecordWindow(QtGui.QDialog, Ui_NewRecordWindow):
                 self.comboBoxDrink.setCurrentIndex(self.comboBoxDrink.findText(result[9]))
                 self.plainTextEditAddress.setPlainText(result[10])
                 self.lineEditPhoneNumber.setText(result[11])
-                #self.labelPhoto.setPixmap(QtGui.QPixmap(result[12].data()))
+
+                # Load picture
+                pixmap = QtGui.QPixmap()
+                pixmap.loadFromData(result[12])
+                if not pixmap.isNull():
+                    self.labelPhoto.setPixmap(pixmap)
+
                 self.labelFirstVisit.setText(result[13])
                 self.lineEditEmail.setText(result[14])
                 self.plainTextEditStory.setPlainText(result[15])
-                self.plainTextEditDiagnostics.setPlainText(result[16])
-                self.setDiseases(result[17])
-                self.setDrugs(result[18])
-                self.plainTextEditDrugNotes.setPlainText(result[19])
+                self.setDiseases(result[16])
+                self.setDICOMs(result[17])
+                self.plainTextEditDiagnostics.setPlainText(result[18])
+                self.setDrugs(result[19])
+                self.plainTextEditDrugNotes.setPlainText(result[20])
 
         else:
             # Set today's date for first visit
             self.labelFirstVisit.setText(QtCore.QDate.currentDate().toString(QtCore.Qt.ISODate))
+
+    def getDICOMs(self):
+        # Hack to get all the items
+        dicoms = []
+        for item in self.listWidgetDICOM.findItems(".dcm", QtCore.Qt.MatchEndsWith):
+            dicoms.append(unicode(item.data(QtCore.Qt.UserRole).toString()))
+
+        return "\n".join(dicoms)
+
+    def setDICOMs(self, dicoms):
+        for dicom in dicoms.split("\n"):
+            item = QtGui.QListWidgetItem(os.path.basename(unicode(dicom)), self.listWidgetDICOM)
+            item.setData(QtCore.Qt.UserRole, unicode(dicom))
 
     def getDiseases(self):
         diseases = []
@@ -67,6 +96,14 @@ class EHRNewRecordWindow(QtGui.QDialog, Ui_NewRecordWindow):
             diseases.append(unicode(selectedListWidget.item(index).text()))
 
         return "\n".join(diseases)
+
+    def getPhoto(self):
+        bytes_ = QtCore.QByteArray()
+        buffer_ = QtCore.QBuffer(bytes_)
+        buffer_.open(QtCore.QIODevice.WriteOnly)
+        self.labelPhoto.pixmap().save(buffer_, "PNG")
+
+        return bytes_
 
     def setDiseases(self, diseases):
         for disease in diseases.split("\n"):
@@ -89,8 +126,7 @@ class EHRNewRecordWindow(QtGui.QDialog, Ui_NewRecordWindow):
             self.listWidgetDICOM.takeItem(self.listWidgetDICOM.row(dicomFile))
 
     def slotShowDICOMImage(self, item):
-        import vtk
-        reader = vtk.vtkDICOMImageReader()
+        reader = vtkgdcm.vtkGDCMImageReader()
         dicom_file = unicode(item.data(QtCore.Qt.UserRole).toString())
         reader.SetFileName(dicom_file)
         reader.Update()
@@ -101,8 +137,8 @@ class EHRNewRecordWindow(QtGui.QDialog, Ui_NewRecordWindow):
         self.qvtkWidget.SetRenderWindow(imageViewer.GetRenderWindow())
         imageViewer.SetupInteractor(self.qvtkWidget.GetRenderWindow().GetInteractor())
 
-        imageViewer.SetColorLevel(128)
-        imageViewer.SetColorWindow(256)
+        #imageViewer.SetColorLevel(128)
+        #imageViewer.SetColorWindow(256)
         imageViewer.SetSize(self.qvtkWidget.geometry().width(), self.qvtkWidget.geometry().height())
         #os.system("gdcmviewer '%s'" % item.data(QtCore.Qt.UserRole).toString())
 
@@ -128,12 +164,10 @@ class EHRNewRecordWindow(QtGui.QDialog, Ui_NewRecordWindow):
             if fileDialog.exec_():
                 fileDialog.selectedFiles().clear()
                 pixmap = QtGui.QPixmap(fileDialog.selectedFiles()[0])
-                #pixmap = pixmap.scaled(128, 128, QtCore.Qt.KeepAspectRatio)
                 self.labelPhoto.setPixmap(pixmap.scaled(128, 128, QtCore.Qt.KeepAspectRatio))
 
 
     def saveRecord(self):
-        # FIXME: Check for empty fields
         # Saves the record into the database
         d = {"firstName"    : unicode(self.lineEditFirstName.text()),
              "lastName"     : unicode(self.lineEditLastName.text()),
@@ -147,23 +181,23 @@ class EHRNewRecordWindow(QtGui.QDialog, Ui_NewRecordWindow):
              "smoke"        : unicode(self.comboBoxDrink.currentText()),
              "address"      : unicode(self.plainTextEditAddress.toPlainText()),
              "phone"        : unicode(self.lineEditPhoneNumber.text()),
-             "photo"        : self.labelPhoto.pixmap(),
+             "photo"        : self.getPhoto(),
              "firstVisit"   : unicode(self.labelFirstVisit.text()),
              "email"        : unicode(self.lineEditEmail.text()),
              "history"      : unicode(self.plainTextEditStory.toPlainText()),
              "diagnostics"  : unicode(self.plainTextEditDiagnostics.toPlainText()),
-             "diseases"     : unicode(self.getDiseases()),
-             "drugs"        : unicode(self.getDrugs()),
+             "dicoms"       : self.getDICOMs(),
+             "diseases"     : self.getDiseases(),
+             "drugs"        : self.getDrugs(),
              "drugNotes"    : unicode(self.plainTextEditDrugNotes.toPlainText())}
 
-        if self.labelPhoto.pixmap():
-            print self.labelPhoto.pixmap()
-
-        retval = self.parent().dbManager.insertNewRecord(d)
+        if self.id_:
+            retval = self.parent().parent().dbManager.updateRecord(self.id_, d)
+        else:
+            retval = self.parent().dbManager.insertNewRecord(d)
 
         if retval:
             QtGui.QMessageBox.information(self, unicode("Kayıt Bilgisi"), "<b>%s %s</b> başarıyla kaydedildi." % (d['firstName'], d['lastName']))
-            #self.pushButtonSave.setText(unicode("Güncelle"))
         else:
             QtGui.QMessageBox.critical(self, unicode("Kayıt Bilgisi"), "<b>%s %s</b> kaydedilemedi. Lütfen tekrar deneyin." % (d['firstName'], d['lastName']))
 

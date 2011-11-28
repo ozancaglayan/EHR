@@ -32,6 +32,7 @@ firstvisit datetime,
 email varchar(40),
 history text,
 diseases text,
+dicoms text,
 diagnostics text,
 drugs text,
 drugnotes text)"""
@@ -54,10 +55,35 @@ INSERT INTO records VALUES(NULL,
 '%(firstVisit)s',
 '%(email)s',
 '%(history)s',
-'%(diagnostics)s',
 '%(diseases)s',
+'%(dicoms)s',
+'%(diagnostics)s',
 '%(drugs)s',
 '%(drugNotes)s')"""
+
+        self.update_query = """
+UPDATE records
+SET firstname='%(firstName)s',
+lastname='%(lastName)s',
+birthplace='%(birthPlace)s',
+birthdate='%(birthDate)s',
+sex='%(sex)s',
+marital='%(maritalStatus)s',
+occupation='%(occupation)s',
+sgkno='%(sgkno)s',
+drink='%(drink)s',
+smoke='%(smoke)s',
+address='%(address)s',
+phone='%(phone)s',
+photo=:photo,
+email='%(email)s',
+history='%(history)s',
+diseases='%(diseases)s',
+dicoms='%(dicoms)s',
+diagnostics='%(diagnostics)s',
+drugs='%(drugs)s',
+drugnotes='%(drugNotes)s'
+WHERE id='%(id_)s'"""
 
         self.search_query = """
 SELECT id,firstname,lastname,sex,firstvisit,phone FROM records WHERE firstname LIKE '%%%s%%' OR
@@ -80,7 +106,6 @@ SELECT * FROM records WHERE id='%s'"""
 
         return retval
 
-
     def insertNewRecord(self, data_dict):
         query = QSqlQuery(self.handle)
         if query.prepare(self.insert_query % data_dict):
@@ -89,8 +114,18 @@ SELECT * FROM records WHERE id='%s'"""
         else:
             return False
 
-    def updateRecord(self, data_dict):
-        pass
+    def updateRecord(self, id_, data_dict):
+        # Register id too
+        data_dict['id_'] = id_
+
+        # Prepare query
+        query = QSqlQuery(self.handle)
+
+        if query.prepare(self.update_query % data_dict):
+            query.bindValue(":photo", data_dict['photo'])
+            return query.exec_()
+        else:
+            return False
 
     def getRecord(self, id_):
         query = QSqlQuery(self.handle)
@@ -99,12 +134,11 @@ SELECT * FROM records WHERE id='%s'"""
         result = None
 
         while query.next():
-            # 21: number of total fields, skip first id field
-            result = [query.value(i).toString() for i in range(1,21)]
-            result[12] = query.value(13).data()
+            # 22: number of total fields, skip first id field
+            result = [query.value(i).toString() for i in range(1,22)]
+            result[12] = query.value(13).toByteArray()
 
         return result
-
 
     def searchRecord(self, firstName, lastName):
         query = QSqlQuery(self.handle)
